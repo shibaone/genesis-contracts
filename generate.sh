@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# Usage: 
+# Usage:
 # generate.sh 15001 heimdall-15001
 
 set -x #echo on
@@ -18,14 +18,14 @@ if [ -z "$2" ]
 fi
 
 npm install
-npm run truffle:compile
+npx hardhat compile
 git submodule init
 git submodule update
 cd matic-contracts
 npm install
-node scripts/process-templates.js --bor-chain-id $1
-npm run truffle:compile
+node run template:process --bor-chain-id $1
+npx hardhat compile
 cd ..
 node generate-borvalidatorset.js --bor-chain-id $1 --heimdall-chain-id $2
-npm run truffle:compile
+npx hardhat compile
 node generate-genesis.js --bor-chain-id $1 --heimdall-chain-id $2
