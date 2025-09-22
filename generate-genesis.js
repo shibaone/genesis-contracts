@@ -29,7 +29,7 @@ program.parse(process.argv)
 async function compileContract(key, contractFile, contractName, solcVersion) {
   return new Promise((resolve, reject) => {
     const ls = spawn(
-      `solc-select use ${solcVersion} && solc --bin-runtime openzeppelin-solidity/=node_modules/openzeppelin-solidity/ /=/ ${contractFile}`,
+      `~/.local/bin/solc-select use ${solcVersion} && solc --bin-runtime openzeppelin-solidity/=node_modules/openzeppelin-solidity/ /=/ ${contractFile}`,
       { shell: true }
     )
 
