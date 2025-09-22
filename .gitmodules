@@ -1,5 +1,5 @@
 [submodule "matic-contracts"]
-	path = pos-contracts
+	path = matic-contracts
 	url = https://github.com/shibaone/pos-contracts.git
 [submodule "lib/forge-std"]
 	path = lib/forge-std
